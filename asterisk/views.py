@@ -12,3 +12,7 @@ def get_logs_view(request):
 
 def dialplan_details_view(request):
     return render(request, 'asterisk/dialplan_details.html')
+
+
+def create_channel_view(request):
+    return render(request, 'asterisk/create_channel.html')

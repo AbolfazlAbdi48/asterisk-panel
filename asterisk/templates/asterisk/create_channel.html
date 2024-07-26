@@ -1,0 +1,231 @@
+{% extends 'core/_base_panel.html' %}
+{% load static %}
+
+{% block title %}
+    ایجاد channel
+{% endblock %}
+
+{% block secondary_title %}
+    ایجاد channel
+{% endblock %}
+
+{% block secondary_title_detail %}ایجاد channel{% endblock %}
+
+{% block content %}
+    <form
+            class="form d-flex flex-column flex-lg-row fv-plugins-bootstrap5 fv-plugins-framework"
+            enctype="multipart/form-data"
+            method="post"
+    >
+        <div class="d-flex flex-column gap-7 gap-lg-10 w-100 w-lg-300px mb-7 me-lg-10">
+            <!--begin::Thumbnail settings-->
+            <div class="card card-flush py-4">
+                <!--begin::Card header-->
+                <div class="card-header">
+                    <!--begin::Card title-->
+                    <div class="card-title">
+                        <h2>تصویر شاخص</h2>
+                    </div>
+                    <!--end::Card title-->
+                </div>
+                <!--end::Card header-->
+                <!--begin::Card body-->
+                <div class="card-body text-center pt-0">
+                    <!--begin::Image input-->
+                    <div class="image-input image-input-outline mb-3 image-input-empty" data-kt-image-input="true"
+                         {% if product.image.url %}style="background-image: url({{ product.image.url }})"{% endif %}
+                    >
+                        <!--begin::نمایش existing avatar-->
+                        <div class="image-input-wrapper w-150px h-150px" style=""></div>
+                        <!--end::نمایش existing avatar-->
+                        <!--begin::Tags-->
+                        <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
+                               data-kt-image-input-action="change" data-bs-toggle="tooltip" title=""
+                               data-bs-original-title="تعویض آواتار">
+                            <i class="bi bi-pencil-fill fs-7"></i>
+                            <!--begin::Inputs-->
+                            <input type="file" name="image" id="id_image" accept=".png, .jpg, .jpeg">
+                            <input type="hidden" name="avatar_remove" value="0">
+                            <!--end::Inputs-->
+                        </label>
+                        <!--end::Tags-->
+                        <!--begin::انصراف-->
+                        <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
+                              data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title=""
+                              data-bs-original-title="انصراف avatar">
+														<i class="bi bi-x fs-2"></i>
+													</span>
+                        <!--end::انصراف-->
+                        <!--begin::حذف-->
+                        <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
+                              data-kt-image-input-action="remove" data-bs-toggle="tooltip" title=""
+                              data-bs-original-title="حذف آواتار">
+														<i class="bi bi-x fs-2"></i>
+													</span>
+                        <!--end::حذف-->
+                    </div>
+                    <!--end::Image input-->
+                    <!--begin::توضیحات-->
+                    <div class="text-muted fs-7">یک تصویر برای محصول بگذارید یا آن را خالی بگذارید تا به صورت اتوماتیک
+                        انتخاب شود.
+                    </div>
+                    <!--end::توضیحات-->
+                </div>
+                <!--end::Card body-->
+            </div>
+        </div>
+        <div class="d-flex flex-column flex-row-fluid gap-7 gap-lg-10" data-select2-id="select2-data-140-sczu">
+            <div class="tab-content" data-select2-id="select2-data-139-z1s1">
+                <div class="tab-pane fade active show" id="kt_ecommerce_add_product_general" role="tab-panel">
+                    <div class="d-flex flex-column gap-7 gap-lg-10">
+                        <!--begin::عمومی options-->
+                        <div class="card card-flush py-4">
+                            <!--begin::Card header-->
+                            <div class="card-header">
+                                <div class="card-title">
+                                    <h2>اطلاعات چنل</h2>
+                                </div>
+                            </div>
+                            <!--end::Card header-->
+                            <!--begin::Card body-->
+                            <div class="card-body pt-0">
+                                <!--begin::Input group-->
+                                <div class="mb-10 fv-row fv-plugins-icon-container fv-plugins-bootstrap5-row-invalid">
+                                    <!--begin::Tags-->
+                                    <label class="required form-label" for="channel-type">نوع-Type
+                                        محصول</label>
+                                    <input type="text" class="form-control" id="channel-type" value="channel" disabled>
+                                </div>
+
+                                <div class="mb-10 fv-row fv-plugins-icon-container fv-plugins-bootstrap5-row-invalid">
+                                    <!--begin::Tags-->
+                                    <label class="required form-label" for="channel-dialplan">
+                                        انتخاب dialplan
+                                    </label>
+                                    <input type="text" class="form-control" id="channel-dialplan">
+                                    <div class="text-muted fs-7">
+                                        (به صورت لیست کشویی اضافه می شود.)
+                                    </div>
+                                </div>
+
+                                <div class="mb-10 fv-row fv-plugins-icon-container fv-plugins-bootstrap5-row-invalid">
+                                    <label class="required form-label" for="channel-username">
+                                        نام
+                                    </label>
+                                    <input type="number" class="form-control" id="channel-username">
+                                </div>
+
+                                <div class="mb-10 fv-row fv-plugins-icon-container fv-plugins-bootstrap5-row-invalid">
+                                    <label class="required form-label" for="channel-password">
+                                        رمزعبور
+                                    </label>
+                                    <input type="number" class="form-control" id="channel-password">
+                                </div>
+
+                                <div class="mb-10 fv-row fv-plugins-icon-container fv-plugins-bootstrap5-row-invalid">
+                                    <label class="form-label" for="channel-detail">
+                                        Detail
+                                    </label>
+                                    <input type="checkbox" id="channel-detail">
+                                </div>
+
+                                <div class="mb-10 fv-row fv-plugins-icon-container fv-plugins-bootstrap5-row-invalid">
+                                    <label class="form-label" for="channel-connections">
+                                        connections
+                                    </label>
+                                    <input type="number" class="form-control" id="channel-connections">
+                                </div>
+
+                                <div class="mb-10 fv-row fv-plugins-icon-container fv-plugins-bootstrap5-row-invalid">
+                                    <label class="form-label" for="channel-part">
+                                        part
+                                    </label>
+                                    <input type="text" class="form-control" id="channel-part">
+                                </div>
+
+                            </div>
+                            <!--end::Card header-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end::Tab content-->
+            <div class="d-flex justify-content-end">
+                <button type="button" id="kt_ecommerce_add_product_submit" class="btn btn-primary">
+                    <span class="indicator-label" id="channel-form-send">ایجاد چنل</span>
+                    <span class="indicator-progress">لطفا صبر کنید...
+												<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+                </button>
+                <!--end::Button-->
+            </div>
+        </div>
+        <!--end::Main column-->
+        <div></div>
+    </form>
+{% endblock %}
+
+
+{% block meta_js_code %}
+    <script>
+        $(document).ready(function () {
+            $('#channel-form-send').click(function () {
+                var type = $('#channel-type').val()
+                var dialplan = $('#channel-dialplan').val()
+                var username = $('#channel-username').val()
+                var password = $('#channel-password').val()
+                var detail = $('#channel-detail').is(':checked')
+                var connections = $('#channel-connections').val()
+                var part = $('#channel-part').val()
+
+                console.log({
+                            type,
+                            dialplan,
+                            password,
+                            username,
+                            detail,
+                            connections,
+                            part
+                        })
+
+                $.ajax({
+                    url: "/create",
+                    type: "POST",
+                    dataType: "json",
+                    data: JSON.stringify({
+                        payload: {
+                            type,
+                            dialplan,
+                            password,
+                            username,
+                            detail,
+                            connections,
+                            part
+                        }
+                    }),
+                    headers: {
+                        "X-Requested-With": "XMLHttpRequest",
+                        "X-CSRFToken": getCookie("csrftoken")
+                    },
+                    beforeSend: function () {
+                        console.log('Sending...')
+                        $('#loader').show()
+                    },
+                    success: (data) => {
+                        if (data) {
+                            console.log(data)
+                            $('#loader').hide()
+                            // TODO: show data in DOM
+                        }
+                    },
+                    error: (data) => {
+                        $('#loader').hide()
+                        Swal.fire({
+                            icon: 'question',
+                            title: "مشکلی پیش آمده لطفا دوباره امتحان کنید."
+                        })
+                    }
+                })
+            })
+        })
+    </script>
+{% endblock %}
