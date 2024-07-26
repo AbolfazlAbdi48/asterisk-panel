@@ -8,3 +8,7 @@ def home(request):
 
 def get_logs_view(request):
     return render(request, 'asterisk/get_logs.html')
+
+
+def dialplan_details_view(request):
+    return render(request, 'asterisk/dialplan_details.html')
