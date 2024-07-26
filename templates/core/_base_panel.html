@@ -7,7 +7,7 @@
     <base href="">
     <title>
         {% block title %}
-            پنل مدیریت فروشنده | پیکوفلز
+            پنل مدیریت VoIP
         {% endblock %}
     </title>
     <meta charset="utf-8"/>
@@ -22,6 +22,27 @@
           type="text/css"/>
     <link href="{% static 'shop_panel_static/css/style.bundle.rtl.css' %}" rel="stylesheet" type="text/css"/>
 
+    <style>
+        .loader {
+            width: 48px;
+            height: 48px;
+            border: 5px solid #FFF;
+            border-bottom-color: #FF3D00;
+            border-radius: 50%;
+            display: inline-block;
+            box-sizing: border-box;
+            animation: rotation 1s linear infinite;
+        }
+
+        @keyframes rotation {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
     {% block meta_css_code %}
 
     {% endblock %}
@@ -391,6 +412,7 @@
 
 <script src="{% static 'shop_panel_static/plugins/global/plugins.bundle.js' %}"></script>
 <script src="{% static 'shop_panel_static/js/scripts.bundle.js' %}"></script>
+<script src="{% static 'site_statics/js/script.js' %}"></script>
 
 {% block meta_js_code %}
 
