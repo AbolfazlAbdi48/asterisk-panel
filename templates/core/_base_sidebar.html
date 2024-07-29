@@ -28,44 +28,44 @@
 									</span>
             <div class="menu-sub menu-sub-accordion menu-active-bg">
                 <div class="menu-item">
-                    <a class="menu-link" href="">
+                    <a class="menu-link" href="{% url 'asterisk:home' %}">
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
 												</span>
-                        <span class="menu-title">مدیریت</span>
+                        <span class="menu-title">داشبورد</span>
                     </a>
                 </div>
             </div>
 
             <div class="menu-sub menu-sub-accordion menu-active-bg">
                 <div class="menu-item">
-                    <a class="menu-link" href="{}">
+                    <a class="menu-link" href="{% url 'asterisk:get_logs' %}">
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
 												</span>
-                        <span class="menu-title">فاکتور ها</span>
+                        <span class="menu-title">لاگ های SIP</span>
                     </a>
                 </div>
             </div>
 
             <div class="menu-sub menu-sub-accordion menu-active-bg">
                 <div class="menu-item">
-                    <a class="menu-link" href="">
+                    <a class="menu-link" href="{% url 'asterisk:detail_dialplan' %}">
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
 												</span>
-                        <span class="menu-title">امتیازات</span>
+                        <span class="menu-title">اطلاعات dialplan</span>
                     </a>
                 </div>
             </div>
 
              <div class="menu-sub menu-sub-accordion menu-active-bg">
                 <div class="menu-item">
-                    <a class="menu-link" href="">
+                    <a class="menu-link" href="{% url 'asterisk:create_channel' %}">
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
 												</span>
-                        <span class="menu-title">ویرایش اطلاعات</span>
+                        <span class="menu-title">ساخت کانال (channel)</span>
                     </a>
                 </div>
             </div>
