@@ -12,8 +12,10 @@
 {% block secondary_title_detail %}{% endblock %}
 
 {% block content %}
-    <span class="loader" id="loader" style="display: none"></span>
+    <div class="loader-box">
+        <span class="loader" id="loader" style="display: none"></span>
 
+    </div>
     <div class="row g-6 g-xl-9">
         <div class="card">
             <div class="card-header align-items-center py-5 gap-2 gap-md-5" data-select2-id="select2-data-124-w3ha">
@@ -241,13 +243,11 @@
                 var formChoice = $('#get-logs-in').val()
 
                 $.ajax({
-                    url: "/detail_dialplan",
+                    url: "http://192.168.43.162:5000/detail_dialplan",
                     type: "POST",
                     dataType: "json",
                     data: JSON.stringify({
-                        payload: {
-                            type: formChoice
-                        }
+                        type: formChoice
                     }),
                     headers: {
                         "X-Requested-With": "XMLHttpRequest",
@@ -259,6 +259,10 @@
                     },
                     success: (data) => {
                         if (data) {
+                            Swal.fire({
+                                icon: 'success',
+                                title: "درخواست شما با موفقیت ارسال شد!"
+                            })
                             console.log(data)
                             $('#loader').hide()
                             // TODO: show data in DOM

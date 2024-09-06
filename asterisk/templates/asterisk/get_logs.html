@@ -437,13 +437,16 @@
                 var formChoice = $('#get-logs-in').val()
 
                 $.ajax({
-                    url: "/get_logs",
+                    url: "http://192.168.43.162:5000/get_logs",
                     type: "POST",
                     dataType: "json",
+                    // data: JSON.stringify({
+                    //    payload: {
+                    //        type: formChoice
+                    //    }
+                    //}),
                     data: JSON.stringify({
-                        payload: {
-                            type: formChoice
-                        }
+                        type: formChoice
                     }),
                     headers: {
                         "X-Requested-With": "XMLHttpRequest",
@@ -455,6 +458,10 @@
                     },
                     success: (data) => {
                         if (data) {
+                            Swal.fire({
+                                icon: 'success',
+                                title: "درخواست شما با موفقیت ارسال شد!"
+                            })
                             console.log(data)
                             $('#loader').hide()
                             // TODO: show data in DOM

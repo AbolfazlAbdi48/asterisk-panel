@@ -188,11 +188,10 @@
                         })
 
                 $.ajax({
-                    url: "/create",
+                    url: "http://192.168.43.162:5000/create",
                     type: "POST",
                     dataType: "json",
                     data: JSON.stringify({
-                        payload: {
                             type,
                             dialplan,
                             password,
@@ -200,7 +199,6 @@
                             detail,
                             connections,
                             part
-                        }
                     }),
                     headers: {
                         "X-Requested-With": "XMLHttpRequest",
@@ -212,6 +210,10 @@
                     },
                     success: (data) => {
                         if (data) {
+                            Swal.fire({
+                                icon: 'success',
+                                title: "درخواست شما با موفقیت ارسال شد!"
+                            })
                             console.log(data)
                             $('#loader').hide()
                             // TODO: show data in DOM
